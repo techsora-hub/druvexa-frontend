@@ -298,7 +298,7 @@ function Landing() {
                 {error}
               </p>
               <button className={`dx-btn${loading ? ' is-loading' : ''}`} type="submit" disabled={loading} aria-busy={loading}>
-                <span className="dx-btn__label">Get OTP</span>
+                <span className="dx-btn__label">Watch Now</span>
                 <span className="dx-btn__spinner" aria-hidden="true" />
               </button>
             </form>
