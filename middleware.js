@@ -18,7 +18,14 @@ import { NextResponse } from 'next/server';
 // crawler need to open them without logging in.
 const PUBLIC_PATHS = ['/login', '/about', '/contact', '/terms', '/privacy', '/refund', '/disclaimer'];
 
+// Pages open to everyone at exactly this path (no sub-paths): the home page,
+// so a visitor sees the whole catalogue first. Clicking any card goes to a
+// title page or /plans, which still need login, so the flow is
+// Home -> card -> Login -> Plans -> Payment -> video.
+const PUBLIC_EXACT = ['/'];
+
 function isPublicPath(pathname) {
+  if (PUBLIC_EXACT.includes(pathname)) return true;
   return PUBLIC_PATHS.some((p) => pathname === p || pathname.startsWith(`${p}/`));
 }
 
